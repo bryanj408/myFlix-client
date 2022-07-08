@@ -1,0 +1,2 @@
+Building the UI for my myFlix app and connecting the database to the front-end. Working with react to connect the REST API/database.
+The user will be able to view a list of movies in the database and add certain movies to a favorites list. Each movie will have information such as description, director, and bios.
