@@ -3,6 +3,7 @@ import axios from 'axios'; //allows us to use ajax to import our api
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
 export class MainView extends React.Component {
 
@@ -43,8 +44,14 @@ export class MainView extends React.Component {
         });
       }
 
+      onRegistration(register) {
+        this.setState({
+            register,
+        })
+      }
+
       render() {
-        const { movies, selectedMovie } = this.state;
+        const { movies, selectedMovie, user } = this.state;
 
            /* If there is no user, the LoginView is rendered. 
            If there is a user logged in, the user details are 
