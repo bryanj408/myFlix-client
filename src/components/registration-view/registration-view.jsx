@@ -15,12 +15,13 @@ export function RegistrationView(props) {
         axios.post('https://myflixnetflix.herokuapp.com/users', {
             Username: username,
             Password: password,
-            Email: email
+            Email: email,
+            Birthday: birthday
     })
        /* console.log(username, password, email, birthday);
         /* Send a request to the server for authentication */
         /* then call props on registored user(username) */
-       // props.onRegistration(username);
+       //props.onRegistration(username);
        .then(response => {
         const data = response.data;
         console.log(data);
@@ -28,7 +29,7 @@ export function RegistrationView(props) {
        })
        .catch(e => {
         console.log('error registering the user');
-        alert('Something wasn\'t entered corerctly');
+        alert('Something wasn\'t entered correctly');
        });
     };
     
