@@ -1,9 +1,12 @@
 import React from 'react';
 import axios from 'axios'; //allows us to use ajax to import our api
+import PropTypes from "prop-types";
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
+import { Row, Col, Container } from 'react-bootstrap';
+
 
 export class MainView extends React.Component {
 
@@ -12,7 +15,8 @@ export class MainView extends React.Component {
         this.state = {
           movies: [],
           selectedMovie: null,
-          user: null
+          user: null,
+          register: null
         };
       }
     
@@ -51,12 +55,12 @@ export class MainView extends React.Component {
       }
 
       render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, selectedMovie, user, register } = this.state;
 
            /* If there is no user, the LoginView is rendered. 
            If there is a user logged in, the user details are 
            *passed as a prop to the LoginView*/
-        if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
+        if (!register) return (<RegistrationView onRegistration={(user) => this.onRegistration(user)}/>);
 
         if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
@@ -65,20 +69,30 @@ export class MainView extends React.Component {
         if (movies.length === 0) return <div className="main-view" />;
     
         return (
-          <div className="main-view">
-            {selectedMovie
-              ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-              : movies.map(movie => (
-                <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-              ))
+            <Row className="main-view justify-content-md-center">
+              {selectedMovie
+                ? (
+                  <Col md={8}>
+                    <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                  </Col>
+                )
+                : movies.map(movie => (
+                  <Col md={3}>
+                    <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+                  </Col>
+                ))
+              }
+            </Row>
+          );
             }
-          </div>
-        );
-      }
-    
-    }
+        }
 
-
-//This is in place of { MainView } with curly braces in index.jsx.
-export default MainView;
-
+//add more proptypes (requirements from your api) as you build the user experience.
+MovieCard.propTypes = {
+    movie: PropTypes.shape({
+      Title: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      ImagePath: PropTypes.string.isRequired
+    }).isRequired,
+    onMovieClick: PropTypes.func.isRequired
+  };
