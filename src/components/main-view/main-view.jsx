@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios'; //allows us to use ajax to import our api
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
 export class MainView extends React.Component {
 
@@ -9,7 +11,8 @@ export class MainView extends React.Component {
         super();
         this.state = {
           movies: [],
-          selectedMovie: null
+          selectedMovie: null,
+          user: null
         };
       }
     
@@ -26,16 +29,38 @@ export class MainView extends React.Component {
             });
       }
 
-      setSelectedMovie(newSelectedMovie) {
+      /*When a movie is clicked, this function is invoked and updates the state of the 
+      `selectedMovie` *property to that movie*/
+
+      setSelectedMovie(movie) {
         this.setState({
-            selectedMovie: newSelectedMovie
+            selectedMovie: movie
         });
       }
 
+      onLoggedIn(user) {
+        this.setState({
+            user
+        });
+      }
+
+      onRegistration(register) {
+        this.setState({
+            register,
+        })
+      }
+
       render() {
-        const { movies, selectedMovie } = this.state;
+        const { movies, selectedMovie, user } = this.state;
+
+           /* If there is no user, the LoginView is rendered. 
+           If there is a user logged in, the user details are 
+           *passed as a prop to the LoginView*/
+
+        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
     
-    
+        //before the movies have been loaded
         if (movies.length === 0) return <div className="main-view" />;
     
         return (
