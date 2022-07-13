@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import axios from 'axios';
+import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
 
 
 export function RegistrationView(props) {
@@ -10,44 +12,91 @@ export function RegistrationView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password, email, birthday);
+        axios.post('https://myflixnetflix.herokuapp.com/users', {
+            Username: username,
+            Password: password,
+            Email: email
+    })
+       /* console.log(username, password, email, birthday);
         /* Send a request to the server for authentication */
         /* then call props on registored user(username) */
-        props.onRegistration(username);
+       // props.onRegistration(username);
+       .then(response => {
+        const data = response.data;
+        console.log(data);
+        window.open('/', '_self');
+       })
+       .catch(e => {
+        console.log('error registering the user');
+        alert('Something wasn\'t entered corerctly');
+       });
     };
+    
 
-    return (
+   return (
 
-        <form>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-        </label>
-        <button type="submit" onClick={handleSubmit}>Submit</button>
-        <label>
-        Email:
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-      </label>
-      <label>
-          Birthday:
-          <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
-        </label>
+    <Container>
+        <Row>
+            <Col>
+                <CardGroup>
+                         <Card>
+                            <Card.Body>
+                            <Card.Title>Registration Page</Card.Title>
+                         <Form>
+                <Form.Group>
+                    <Form.Label>Username:</Form.Label>
+                        <Form.Control 
+                        type="text" 
+                        value={username} 
+                        onChange={e => setUsername(e.target.value)} 
+                        required 
+                        placeholder="Enter a username"
+                        />
+                </Form.Group>
 
-        <button type="submit" onClick={handleSubmit}>Register</button>
+                <Form.Group>
+                <Form.Label>Password:</Form.Label>
+                        <Form.Control 
+                        type="password" 
+                        value={password} 
+                        onChange={e => setPassword(e.target.value)} 
+                        required 
+                        placeholder="Your password must be 8 or more characters"
+                        minLength="8"
+                        />
+                </Form.Group>
 
-      </form>
-    )
+                <Form.Group>
+                <Form.Label>Email:</Form.Label>
+                        <Form.Control 
+                        type="email" 
+                        value={email} 
+                        onChange={e => setEmail(e.target.value)} 
+                        required 
+                        placeholder="Enter your email address"
+                        />
+                </Form.Group>
+
+                <Form.Group>
+                <Form.Label>Birthday:</Form.Label>
+                        <Form.Control 
+                        type="birthdate" 
+                        value={birthday} 
+                        onChange={e => setBirthday(e.target.value)} 
+                        required 
+                        placeholder="Enter your birthday"
+                        />
+                </Form.Group>
+
+                <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+            </Form>
+                            </Card.Body>
+                           
+                         </Card>
+                </CardGroup>
+            
+            </Col>
+        </Row>
+    </Container>
+   );
 }
-
-RegistrationView.propTypes = {
-    register: PropTypes.shape({
-      Username: PropTypes.string.isRequired,
-      Password: PropTypes.string.isRequired,
-      Email: PropTypes.string.isRequired,
-      Birthday: PropTypes.string,
-    }),
-  };
