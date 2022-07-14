@@ -1,3 +1,6 @@
+//NOTES
+//Registration does not work but loggin in with real user does. commented out ln 69 !register until later.
+
 import React from 'react';
 import axios from 'axios'; //allows us to use ajax to import our api
 import PropTypes from "prop-types";
@@ -42,10 +45,16 @@ export class MainView extends React.Component {
         });
       }
 
-      onLoggedIn(user) {
+      //Added auth to store data in the user's browsers so they don't have to log in again.
+      onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.Username
         });
+
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
       }
 
       onRegistration(register) {
@@ -60,11 +69,11 @@ export class MainView extends React.Component {
            /* If there is no user, the LoginView is rendered. 
            If there is a user logged in, the user details are 
            *passed as a prop to the LoginView*/
-        if (!register) return (<RegistrationView onRegistration={(user) => this.onRegistration(user)}/>);
 
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />; 
 
-    
+        //if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
+
         //before the movies have been loaded
         if (movies.length === 0) return <div className="main-view" />;
     
@@ -96,3 +105,5 @@ MovieCard.propTypes = {
     }).isRequired,
     onMovieClick: PropTypes.func.isRequired
   };
+
+  export default MainView;
