@@ -9,6 +9,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { Row, Col, Container } from 'react-bootstrap';
+import { response } from 'express';
 
 
 export class MainView extends React.Component {
@@ -49,9 +50,9 @@ export class MainView extends React.Component {
       onLoggedIn(authData) {
         console.log(authData);
         this.setState({
-            user: authData.user.Username
+          user: authData.user.Username
         });
-
+      
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
@@ -60,6 +61,21 @@ export class MainView extends React.Component {
       onRegistration(register) {
         this.setState({
             register,
+        });
+      }
+
+      getMovies(token) {
+        axios.get('https://myflixnetflix.herokuapp.com/movies', {
+            headers: { Authorization: `Bearer ${token}`} //There should be no space in front of “Bearer” or after “...token}”. Otherwise, you'll get an error.
+        })
+        .then(response => {
+            //Assign the result to the state
+            this.setState({
+                movies: response.data
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
         });
       }
 
