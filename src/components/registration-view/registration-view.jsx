@@ -26,11 +26,11 @@ export function RegistrationView(props) {
         const data = response.data;
         console.log(data);
         window.open('/', '_self');
-       })
+       })/*
        .catch(e => {
         console.log('error registering the user');
         alert('Something wasn\'t entered correctly');
-       });
+       });*/
     };
     
 
@@ -101,3 +101,11 @@ export function RegistrationView(props) {
     </Container>
    );
 }
+
+RegistrationView.propTypes = {
+    register: PropTypes.shape({
+      Username: PropTypes.string.isRequired,
+      Password: PropTypes.string.isRequired,
+      Email: PropTypes.string.isRequired,
+    }),
+  };

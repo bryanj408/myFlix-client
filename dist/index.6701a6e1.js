@@ -25304,7 +25304,7 @@ class MainView extends _reactDefault.default.Component {
         /* If there is no user, the LoginView is rendered. 
            If there is a user logged in, the user details are 
            *passed as a prop to the LoginView*/ if (!register) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
-            onRegistration: (user1)=>this.onRegistration(user1)
+            onRegistration: (register1)=>this.onRegistration(register1)
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
@@ -25387,6 +25387,7 @@ _movieCard.MovieCard.propTypes = {
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
 };
+exports.default = MainView;
 
   $parcel$ReactRefreshHelpers$35bf.postlude(module);
 } finally {
@@ -29793,11 +29794,12 @@ function RegistrationView(props) {
             const data = response.data;
             console.log(data);
             window.open('/', '_self');
-        }).catch((e1)=>{
-            console.log('error registering the user');
-            alert('Something wasn\'t entered correctly');
         });
-    };
+    /*
+       .catch(e => {
+        console.log('error registering the user');
+        alert('Something wasn\'t entered correctly');
+       });*/ };
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
         __source: {
             fileName: "src/components/registration-view/registration-view.jsx",
@@ -29994,6 +29996,13 @@ function RegistrationView(props) {
 }
 _s(RegistrationView, "oodxkowr8L/+sgf0pg4pF6PrtNw=");
 _c = RegistrationView;
+RegistrationView.propTypes = {
+    register: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired
+    })
+};
 var _c;
 $RefreshReg$(_c, "RegistrationView");
 

@@ -44,7 +44,7 @@ export class MainView extends React.Component {
 
       onLoggedIn(user) {
         this.setState({
-            user
+            user,
         });
       }
 
@@ -60,9 +60,9 @@ export class MainView extends React.Component {
            /* If there is no user, the LoginView is rendered. 
            If there is a user logged in, the user details are 
            *passed as a prop to the LoginView*/
-        if (!register) return (<RegistrationView onRegistration={(user) => this.onRegistration(user)}/>);
+        if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
     
         //before the movies have been loaded
@@ -96,3 +96,5 @@ MovieCard.propTypes = {
     }).isRequired,
     onMovieClick: PropTypes.func.isRequired
   };
+
+  export default MainView;
