@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
 
@@ -18,19 +18,15 @@ export function RegistrationView(props) {
             Email: email,
             Birthday: birthday
     })
-       /* console.log(username, password, email, birthday);
-        /* Send a request to the server for authentication */
-        /* then call props on registored user(username) */
-       // props.onRegistration(username);
        .then(response => {
         const data = response.data;
         console.log(data);
         window.open('/', '_self');
-       })/*
+       })
        .catch(e => {
         console.log('error registering the user');
         alert('Something wasn\'t entered correctly');
-       });*/
+       });
     };
     
 
@@ -95,7 +91,6 @@ export function RegistrationView(props) {
                            
                          </Card>
                 </CardGroup>
-            
             </Col>
         </Row>
     </Container>
@@ -107,5 +102,6 @@ RegistrationView.propTypes = {
       Username: PropTypes.string.isRequired,
       Password: PropTypes.string.isRequired,
       Email: PropTypes.string.isRequired,
+      Birthday: PropTypes.string
     }),
   };

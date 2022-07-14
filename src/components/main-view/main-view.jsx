@@ -97,4 +97,4 @@ MovieCard.propTypes = {
     onMovieClick: PropTypes.func.isRequired
   };
 
-  export default MainView;
+  //export default MainView;
