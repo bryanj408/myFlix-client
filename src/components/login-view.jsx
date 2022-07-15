@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
-export function LoginView(props) {
+//Took out export function... to match code in book. add in '}' at end of login-view if returning from commented out
+  export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
@@ -36,4 +38,5 @@ return (
         <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
     </Form>
 )
-}
+  }
+
