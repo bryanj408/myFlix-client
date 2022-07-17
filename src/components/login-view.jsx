@@ -11,7 +11,7 @@ import axios from 'axios';
   const handleSubmit = (e) => {
     e.preventDefault();
     //sends a request to the server for authentication
-    axios.post('https://myflixnetflix.herokuapp.com/users', {
+    axios.post('https://myflixnetflix.herokuapp.com/login', {
       Username: username,
       Password: password
     })
