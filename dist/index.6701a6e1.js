@@ -25394,7 +25394,8 @@ _movieCard.MovieCard.propTypes = {
         ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
-}; //export default MainView;
+};
+exports.default = MainView;
 
   $parcel$ReactRefreshHelpers$35bf.postlude(module);
 } finally {
