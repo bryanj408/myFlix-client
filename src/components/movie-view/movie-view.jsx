@@ -1,18 +1,7 @@
 import React from 'react';
 
 export class MovieView extends React.Component {
-/* Tested key press but removed because it serves no purpose for this application at this time
-    keypressCallback(event) {
-        console.log(event.key);
-    }
 
-    componentDidMount() {
-        document.addEventListener('Keypress', this.keypressCallback);
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('Keypress', this.keypressCallback);
-    }*/
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -31,6 +20,14 @@ export class MovieView extends React.Component {
           <span className="value">{movie.Description}</span>
         </div>
         <button onClick={() => { onBackClick(null); }}>Back</button>
+
+    <Link to={`/directors/${movie.Director.Name}`}>
+    <Button variant="link">Director</Button>
+    </Link>
+
+    <Link to={`/genres/${movie.Genre.Name}`}>
+    <Button variant="link">Genre</Button>
+    </Link>
 
       </div>
     );

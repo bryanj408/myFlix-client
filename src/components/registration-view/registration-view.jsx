@@ -18,14 +18,10 @@ export function RegistrationView(props) {
             Email: email,
             Birthday: birthday
     })
-       /* console.log(username, password, email, birthday);
-        /* Send a request to the server for authentication */
-        /* then call props on registored user(username) */
-       //props.onRegistration(username);
        .then(response => {
         const data = response.data;
         console.log(data);
-        window.open('/', '_self');
+        window.open('/', '_self');   // the second argument '_self' is necessary so that the page will open in the current tab
        })
        .catch(e => {
         console.log('error registering the user');
