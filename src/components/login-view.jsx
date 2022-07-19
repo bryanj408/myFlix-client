@@ -17,14 +17,14 @@ import axios from 'axios';
     if(!username) {
       setUsernameErr('Username Required');
       isReq = false;
-    } else if(username.length < 2) {
+    } else if (username.length < 2) {
       setUsernameErr('Username must be 2 characters or more long');
       isReq = false;
     }
     if(!password) {
       setPasswordErr('Password Required');
       isReq = false;
-    } else if(password.length < 6) {
+    } else if (password.length < 6) {
       setPassword('Password must be 6 characters or more long');
       isReq = false;
     }
@@ -34,7 +34,7 @@ import axios from 'axios';
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();
-    if(isReq) {
+    if (isReq) {
     //sends a request to the server for authentication
     axios.post('https://myflixnetflix.herokuapp.com/login', {
       Username: username,
@@ -45,26 +45,30 @@ import axios from 'axios';
       props.onLoggedIn(data);
     })
     .catch(e => {
-      console.log('mo such user')
+      console.log('no such user')
     });
   }
   };
 
   return (
-    <Form>
-      <Form.Group controlId="formUsername">
+    <Form className="login-form__style">
+      <Form.Group className="mb-3 form-group" controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
+        {/* code added here to display validation error */}
+        {usernameErr && <p>{usernameErr}</p>}
       </Form.Group>
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password</Form.Label>
+      <Form.Group className="mb-3" controlId="formPassword">
+        <Form.Label>Password:</Form.Label>
         <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+        {/* code added here to display validation error */}
+        {passwordErr && <p>{passwordErr}</p>}
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-        </Button>
+      <Button variant="warning" type="submit" onClick={handleSubmit}>
+        Log In
+      </Button>
     </Form>
-  )
+  );
 }
 
