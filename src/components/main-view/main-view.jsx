@@ -12,6 +12,7 @@ import { GenreView } from '../genre-view/genre-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { Menubar } from '../navbar/navbar';
 
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -81,6 +82,7 @@ export class MainView extends React.Component {
               </Col>
             ))
           }} />
+          
           <Route path="/register" render={() => {
             if (user) return <Redirect to="/" />
             return <Col>
