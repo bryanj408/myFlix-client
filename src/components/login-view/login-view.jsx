@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
@@ -11,7 +11,7 @@ export function LoginView(props) {
   const [ password, setPassword ] = useState('');
 
   const handleSubmit = (e) => {
-    axios.post('https://movime-api.herokuapp.com/login', {
+    axios.post('https://myflixnetflix.herokuapp.com/login', {
       Username: username,
       Password: password
     })

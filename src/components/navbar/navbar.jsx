@@ -5,11 +5,11 @@ import Container from 'react-bootstrap/Container';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 //import e from 'express';
 
-export function Navbar() {
+export function Menubar() {
     let user = localStorage.getItem('user');
 
     const handleLogOut = () => {
-      e.preventDefault();
+      //e.preventDefault();
         localStorage.clear();
         window.open('/', '_self');
     };
