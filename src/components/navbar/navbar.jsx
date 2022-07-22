@@ -28,7 +28,7 @@ export function Menubar() {
     
       return (
         <>
-      <Navbar className="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
+      <Navbar className="main-nav" sticky="top" bg="dark" expand="xl" variant="dark">
       <Container>
       <Navbar.Brand href="/">MyFlix</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
