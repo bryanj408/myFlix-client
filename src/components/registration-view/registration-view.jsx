@@ -98,3 +98,8 @@ export function RegistrationView(props) {
     </Container>
    );
 }
+
+//Just added
+RegistrationView.propTypes = {
+    onRegistration: PropTypes.func.isRequired
+};
