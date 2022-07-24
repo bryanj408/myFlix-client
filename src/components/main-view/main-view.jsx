@@ -23,6 +23,7 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { Menubar } from '../navbar/navbar';
+import { ProfileView } from '../profile-view/profile-view';
 
 
 import Row from 'react-bootstrap/Row';
