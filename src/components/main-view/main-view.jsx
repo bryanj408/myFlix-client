@@ -90,10 +90,12 @@ class MainView extends React.Component {
     }
 
     render() {
+
       if (!this.state) return <>loading...</>
       const { movies, user } = this.state;
       // const { movies, user } = this.props;
       console.log('logged in: ', user);
+
 
       return (
           <Router>
@@ -177,4 +179,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, mapDispatchToProps)(MainView);
