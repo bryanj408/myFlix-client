@@ -1,0 +1,41 @@
+--Objective
+Using React, build the client-side for an application called myFlix based on
+its existing server-side code (REST API and database).
+
+--Brief description
+I built a client-side application called myFlix that accesses an existing API (REST API and database).
+
+-- What was your role for this project and what tasks did you face?
+I needed to build a database through the terminal on the backend in order to connect it to a front-end
+UI that the user could access and navigate. 
+
+-- What decisions did you take and why? What were the consequences?
+I chose to start using Visual Studio Code with its built-in terminal and debugging tools.
+I challenged myself to learn different programs and utilities such as Heroku and Netlify.
+
+--- If you could, what would you do differently?
+I would spend more time on the resources provided. There is so much to learn and so little time.
+
+-- What lessons did you learn during this project?
+I learned how to use REACT and integrate REDUX after the project was finished. 
+
+--A link to the project’s GitHub repository.
+https://github.com/bryanj408/myFlix-client
+
+-A list of the technologies used for each project (React, CSS etc. — again, you can pull this from your README file).
+1) React
+2) Redux
+3) Parcel
+
+
+
+
+
+
+
+
+
+
+
+
+
