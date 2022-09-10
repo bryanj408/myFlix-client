@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 
 
 export class GenreView extends React.Component {
+  /**
+   * @params name, description
+   * @returns from onBackClick, details of genre 
+   * from GET request from API
+   */
 
   render() {
     const { genre, onBackClick } = this.props;

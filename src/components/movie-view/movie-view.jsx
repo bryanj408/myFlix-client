@@ -6,6 +6,12 @@ import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
+    /**
+     * Adds selected movie from user to user favorites storing it
+     * with username and user token.
+     * @param {*} event 
+     */
+
     addToFavs = (event) => {
         event.preventDefault()
     

@@ -44,8 +44,11 @@ class ProfileView extends React.Component {
         });
     }
 
-    //Sends a PUT request to API and the response sets the state to update user info.
-    //console.log message indicates success
+    /**
+     * Sends a PUT request to API and the response sets the state
+     *  to update user info. console.log message indicates success
+     * @param {*} e 
+     */
     updateUser = (e) => {
         e.preventDefault();
         const Username = localStorage.getItem('user');
@@ -74,7 +77,11 @@ class ProfileView extends React.Component {
         });
     }
 
-    //Sends a DELETE request to API and console.log message indicates success
+    /**
+     * Sends a DELETE request to API and console.log message indicates success
+     * @param {*} event 
+     * @param {*} movie 
+     */
     removeFromFavorite = (event, movie) => {
         event.preventDefault()
 
@@ -100,7 +107,9 @@ class ProfileView extends React.Component {
       })
     }
 
-    //Sends DELETE request to API and console.log message indicates success
+    /**
+     * Sends DELETE request to API and console.log message indicates success
+     */
     removeUser() {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');

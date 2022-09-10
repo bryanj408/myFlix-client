@@ -83,8 +83,12 @@ class MainView extends React.Component {
         });
     }
 
-    //On succesful login, function updates the user property in 
-    //state to that user
+    /**
+     * On succesful login, function updates the 
+     * user property in state to that user
+     * @param {*} authData 
+     */
+    
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({

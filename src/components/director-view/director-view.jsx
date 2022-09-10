@@ -7,7 +7,10 @@ import { Link } from "react-router-dom";
 
 
 export class DirectorView extends React.Component {
-
+/** 
+ * @params born, biography
+ * @returns director information using GET from API
+ */
 
   render() {
     const { director, onBackClick } = this.props;

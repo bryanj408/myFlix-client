@@ -6,6 +6,11 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 export class MovieCard extends React.Component {
+  /**
+   * Shows movie card from user selection
+   * @returns movie from movie-card on selection from user
+   */
+
   render() {
     const { movie } = this.props;
 
