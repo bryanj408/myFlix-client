@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {Redirect}  from 'react-router';
@@ -22,34 +21,15 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view'; 
 import ProfileView from '../profile-view/profile-view';
 import { Container, Col, Row } from 'react-bootstrap';
-=======
-import axios from 'axios'; //allows us to use ajax to import our api
-import PropTypes from "prop-types";
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
-import { LoginView } from '../login-view/login-view';
-import { RegistrationView } from '../registration-view/registration-view';
-import { Row, Col, Container } from 'react-bootstrap';
-
->>>>>>> gh-pages
-
 import './main-view.scss';
 
 class MainView extends React.Component {
     constructor() {
         super();
-<<<<<<< HEAD
         this.state= {
             movies: [],
             user: null,
             fullUser: {}
-=======
-        this.state = {
-          movies: [],
-          selectedMovie: null,
-          user: null,
-          register: null
->>>>>>> gh-pages
         };
     }
 
@@ -83,7 +63,6 @@ class MainView extends React.Component {
         this.setState({
             selectedMovie: movie
         });
-<<<<<<< HEAD
     }
 
     getMovies(token) {
@@ -221,63 +200,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainView);
-=======
-      }
-
-      onLoggedIn(user) {
-        this.setState({
-            user,
-        });
-      }
-
-      onRegistration(register) {
-        this.setState({
-            register,
-        });
-      }
-
-      render() {
-        const { movies, selectedMovie, user, register } = this.state;
-
-           /* If there is no user, the LoginView is rendered. 
-           If there is a user logged in, the user details are 
-           *passed as a prop to the LoginView*/
-        if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
-
-        if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-
-    
-        //before the movies have been loaded
-        if (movies.length === 0) return <div className="main-view" />;
-    
-        return (
-            <Row className="main-view justify-content-md-center">
-              {selectedMovie
-                ? (
-                  <Col md={8}>
-                    <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                  </Col>
-                )
-                : movies.map(movie => (
-                  <Col md={3}>
-                    <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-                  </Col>
-                ))
-              }
-            </Row>
-          );
-            }
-        }
-
-//add more proptypes (requirements from your api) as you build the user experience.
-MovieCard.propTypes = {
-    movie: PropTypes.shape({
-      Title: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired,
-      ImagePath: PropTypes.string.isRequired
-    }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
-  };
-
-  export default MainView;
->>>>>>> gh-pages
