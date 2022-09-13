@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+>>>>>>> gh-pages
 
 
 //Took out export function... to match code in book. add in '}' at end of login-view if returning from commented out
@@ -50,6 +53,7 @@ import axios from 'axios';
   }
   };
 
+<<<<<<< HEAD
   return (
     <Form className="login-form__style">
       <Form.Group className="mb-3 form-group" controlId="formUsername">
@@ -70,5 +74,21 @@ import axios from 'axios';
       </Button>
     </Form>
   );
+=======
+return (
+    <Form>
+        <Form.Group controlId='formUsername'>
+        <Form.Label>Username:</Form.Label>
+        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+        </Form.Group>
+
+        <Form.Group controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+        </Form.Group>
+        <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+    </Form>
+    );
+>>>>>>> gh-pages
 }
 
