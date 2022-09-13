@@ -1015,11 +1015,15 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","react-bootstrap":"h2YVd","redux":"4d0QS","redux-devtools-extension":"8GWVf","react-redux":"2L0if","./reducers/reducers":"btgQW","./components/main-view/main-view":"2zHas","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"4an5H","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6gbiC"}],"8xIwr":[function(require,module,exports) {
 =======
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./components/main-view/main-view":"2zHas","react-bootstrap/Container":"2PRIq","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"4an5H","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6gbiC"}],"8xIwr":[function(require,module,exports) {
 >>>>>>> gh-pages
+=======
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./components/main-view/main-view":"2zHas","react-bootstrap/Container":"2PRIq","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"4an5H","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6gbiC"}],"8xIwr":[function(require,module,exports) {
+>>>>>>> Stashed changes
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -22521,6 +22525,7 @@ module.exports = require('./cjs/scheduler.development.js');
     exports.unstable_wrapCallback = unstable_wrapCallback;
 })();
 
+<<<<<<< Updated upstream
 },{}],"aEthe":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/scheduler-tracing.development.js');
@@ -22672,6 +22677,39 @@ module.exports = require('./cjs/scheduler-tracing.development.js');
             onWorkScheduled: onWorkScheduled,
             onWorkStarted: onWorkStarted,
             onWorkStopped: onWorkStopped
+=======
+},{}],"2zHas":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$35bf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$35bf.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainView", ()=>MainView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios"); //allows us to use ajax to import our api
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
+var _loginView = require("../login-view/login-view");
+var _registrationView = require("../registration-view/registration-view");
+var _reactBootstrap = require("react-bootstrap");
+class MainView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            movies: [],
+            selectedMovie: null,
+            user: null,
+            register: null
+>>>>>>> Stashed changes
         };
     }
     function unstable_unsubscribe(subscriber) {
@@ -44576,9 +44614,12 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-router-dom":"cpyQW","@parcel/transformer-js/src/esmodule-helpers.js":"4an5H","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6gbiC"}],"6gbiC":[function(require,module,exports) {
 =======
+=======
+>>>>>>> Stashed changes
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"4an5H","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6gbiC"}],"4an5H":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
@@ -44612,7 +44653,10 @@ exports.export = function(dest, destName, get) {
 };
 
 },{}],"6gbiC":[function(require,module,exports) {
+<<<<<<< Updated upstream
 >>>>>>> gh-pages
+=======
+>>>>>>> Stashed changes
 "use strict";
 var Refresh = require('react-refresh/runtime');
 function debounce(func, delay) {
