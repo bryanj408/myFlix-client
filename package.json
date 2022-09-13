@@ -21,6 +21,7 @@
   "homepage": "https://github.com/bryanj408/myFlix-client#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "buffer": "^6.0.3",
     "parcel": "^2.0.0-rc.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.4.0",
